@@ -5,10 +5,12 @@ class CardsController < ApplicationController
 
   def create
     @card = Card.new(card_params)
+    @card.review_date = Date.today + 3
+
     if @card.save
       redirect_to cards_path
     else
-      render "new"
+      render :new
     end
   end
 
@@ -25,10 +27,12 @@ class CardsController < ApplicationController
 
   def update
     @card = Card.find(params[:id])
-    if @card.save
+
+    card_params[:review_date] = Date.today + 3
+    if @card.update_attributes(card_params)
       redirect_to cards_path
     else
-      render "edit"
+      render :edit
     end
   end
 
@@ -39,9 +43,8 @@ class CardsController < ApplicationController
     redirect_to cards_path
   end
 
-private
+  private
   def card_params
-    params[:review_date] = Date.today + 3
     params.require(:card).permit(:original_text, :translated_text)
   end
 end

@@ -4,7 +4,7 @@ class Card < ActiveRecord::Base
 
   def inequality_of_original_and_translated_texts
     if original_text.downcase.eql? translated_text.downcase
-      errors.add(original_text, "translated_text cannot be same as original")
+      errors.add(:translated_text, "Translated text cannot be same as original")
     end
   end
 end

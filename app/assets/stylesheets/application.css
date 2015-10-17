@@ -24,3 +24,8 @@ body > section {
   display: inline-block;
   text-align: center;
 }
+
+
+form {
+  padding-left: 15px;
+}
