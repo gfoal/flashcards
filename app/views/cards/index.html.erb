@@ -4,6 +4,8 @@
       <p><%= c.original_text %></p>
       <p><%= c.translated_text %></p>
       <p><%= c.review_date.strftime("%d/%m/%Y") %></p>
+      <p><%= link_to "Редактировать", edit_card_path(c.id) %></p>
+      <p><%= link_to "Удалить", card_path(c.id), method: :delete, data: {confirm: 'Точно?'} %></p>
     </div>
   <% end %>
 </div>
