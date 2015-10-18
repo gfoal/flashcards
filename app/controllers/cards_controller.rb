@@ -5,7 +5,6 @@ class CardsController < ApplicationController
 
   def create
     @card = Card.new(card_params)
-    @card.review_date = Date.today + 3
 
     if @card.save
       redirect_to cards_path
@@ -28,7 +27,6 @@ class CardsController < ApplicationController
   def update
     @card = Card.find(params[:id])
 
-    card_params[:review_date] = Date.today + 3
     if @card.update_attributes(card_params)
       redirect_to cards_path
     else
