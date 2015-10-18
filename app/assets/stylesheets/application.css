@@ -23,9 +23,7 @@ body > section {
   padding: 10px;
   display: inline-block;
   text-align: center;
-}
-
-
-form {
-  padding-left: 15px;
+  width: 150px;
+  height: 200px;
+  margin: 5px;
 }
